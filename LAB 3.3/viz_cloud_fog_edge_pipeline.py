@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class DistributedSystemSimulator:
-    def __init__(self, n_edge_devices=100, n_fog_nodes=10, n_cloud_servers=3):
+    def __init__(self, n_edge_devices=2000, n_fog_nodes=100, n_cloud_servers=15):
         self.n_edge_devices = n_edge_devices
         self.n_fog_nodes = n_fog_nodes
         self.n_cloud_servers = n_cloud_servers
@@ -56,7 +56,7 @@ class DistributedSystemSimulator:
             nodes.append({
                 'id': f"Fog_{i}",
                 'processing_delay_range': (int(30 * capacity_factor), int(80 * capacity_factor)),
-                'queue_capacity': 400,
+                'queue_capacity': 200,
                 'current_queue': 0,
                 'assigned_cloud': random.randint(0, self.n_cloud_servers-1),
                 'processed_tasks': 0
@@ -297,9 +297,9 @@ def simulate_custom_config():
     
     # 🎛️ НАСТРОЙКА ПАРАМЕТРОВ СИСТЕМЫ - МЕНЯЙТЕ ЭТИ ЧИСЛА 🎛️
     CONFIG = {
-        'edge_devices': 10000,      # ↦ Количество краевых устройств (100-10000)
-        'fog_nodes': 10000,          # ↦ Количество Fog-узлов (100-10000)
-        'cloud_servers': 100,       # ↦ Количество облачных серверов (1-100)
+        'edge_devices': 3000,      # ↦ Количество краевых устройств (100-10000)
+        'fog_nodes': 60,          # ↦ Количество Fog-узлов (100-10000)
+        'cloud_servers': 10,       # ↦ Количество облачных серверов (1-100)
         'tasks': 200,             # ↦ Количество задач для симуляции
         'seed': 42               # ↦ Seed для воспроизводимости результатов
     }
